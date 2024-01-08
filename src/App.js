@@ -18,19 +18,69 @@ const settings = {
 // You can read more about the packages here:
 //   https://docs.alchemy.com/reference/alchemy-sdk-api-surface-overview#api-surface
 const alchemy = new Alchemy(settings);
-
+ /*
 function App() {
   const [blockNumber, setBlockNumber] = useState();
+  const [block, setBlock] = useState();
 
   useEffect(() => {
     async function getBlockNumber() {
       setBlockNumber(await alchemy.core.getBlockNumber());
     }
 
-    getBlockNumber();
-  });
+    async function getBlock() {
+      setBlock(await alchemy.core.getBlock(blockNumber));
+    }
 
-  return <div className="App">Block Number: {blockNumber}</div>;
+    getBlockNumber();
+    getBlock();
+  }, []);
+  console.log(block);
+
+  return (
+  <div>
+    <div className="App">Block Number: {blockNumber}</div>
+  </div>
+  );
+}*/
+
+function App() {
+  const [blockNumber, setBlockNumber] = useState();
+  const [block, setBlock] = useState();
+
+  useEffect(() => {
+    async function getBlockNumber() {
+      const number = await alchemy.core.getBlockNumber();
+      setBlockNumber(number);
+      return number;
+    }
+
+    async function getBlock(number) {
+      const blockData = await alchemy.core.getBlock(number);
+      setBlock(blockData);
+    }
+
+    // Fetch and set the block number
+    getBlockNumber().then(number => {
+      if (number != null) {
+        getBlock(number);
+      }
+    });
+  }, []);
+
+  // Logging the block to see the fetched data
+  console.log(block);
+
+  return (
+    <div>
+      <div className="App">Block Number: {blockNumber}</div>
+      <br></br>
+      <div className="App"><b>Block Details</b></div>
+      <div className=""><pre>{JSON.stringify(block, null, 4)}</pre></div>
+    </div>
+  );
 }
+
+
 
 export default App;

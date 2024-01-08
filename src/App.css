@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  height: 100vh; /* Optional: Full viewport height */
+}
+
+
+pre {
+  background-color: #6eade4; /* Light gray background */
+  border: 1px solid #062948; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 15px; /* Spacing inside the pre element */
+  margin: 20px 175px; /* Spacing outside the pre element */
+  font-size: 1em; /* Font size */
+  font-family: 'Courier New', Courier, monospace; /* Font type */
+  overflow-x: auto; /* Horizontal scrolling for overflow content */
+  white-space: pre-wrap; /* Ensures long lines wrap */
+  word-break: break-all; /* Breaks long words */
+  width: 75%; /* Width set to 75% of the parent container */
+  max-width: 75%; /* Maximum width set to 75% to maintain responsiveness */
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
