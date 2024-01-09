@@ -1,0 +1,20 @@
+.nav-buttons {
+    text-align: center; /* Center buttons horizontally */
+    margin-top: 20px; /* Add some space at the top */
+  }
+  
+  .nav-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    margin: 10px; /* Margin between buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    text-decoration: none; /* Remove underline from link */
+  }
+  
+  .nav-button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }
+  
