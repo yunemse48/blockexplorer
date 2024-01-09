@@ -60,3 +60,11 @@ pre {
   max-width: 75%; /* Maximum width set to 75% to maintain responsiveness */
   box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
+
+ul {
+  list-style-type: disc; /* or some other style */
+  margin: 0 auto; /* Centering the list */
+  padding: 0; /* Resetting default padding */
+  width: 50%; /* Just as an example */
+}
+
