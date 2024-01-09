@@ -24,6 +24,7 @@ function App() {
   const [block, setBlock] = useState();
   const [properties, setProperties] = useState({});
   const [minerAddress, setMinerAddress] = useState("");
+  const [transactions, setTransactions] = useState([]);
 
 
   /*useEffect(() => {
@@ -68,6 +69,7 @@ function App() {
         }
       }
       setProperties(temp);
+      setTransactions(block.transactions);
     }
   }, [block]);
 
@@ -82,6 +84,31 @@ function App() {
     } catch (error) {
       console.error('Error fetching balance:', error);
       throw error; // Rethrow the error for handling in the calling context
+    }
+  };
+
+  const fetchTransactionDetails = async (transaction) => {
+    try {
+      const txDetails = await alchemy.core.getTransactionReceipt(transaction);
+      return txDetails;
+    } catch (error) {
+      console.error('Error fetching TX details:', error);
+      throw error; // Rethrow the error for handling in the calling context
+    }
+  };
+
+  const openTransactionDetailsInNewTab = async (transaction) => {
+    try {
+      const txDetails = await fetchTransactionDetails(transaction);
+  
+      // Open a new window and write the balance data to it
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(`<p>Details for transaction <b>${transaction}:</b> <br></br><pre>${JSON.stringify(txDetails, null, 4)}</pre></p>`);
+      newWindow.document.title = "Transaction Details";
+  
+    } catch (error) {
+      console.error('Failed to open new tab with balance:', error);
+      // Optionally, handle the error (e.g., show a notification to the user)
     }
   };
 
@@ -104,9 +131,9 @@ function App() {
   
     return (
       <div>
-        <div className="App">Block Number: {blockNumber}</div>
+        <div className="App">Latest Block Number: {blockNumber}</div>
         <br></br>
-        <div className="App"><b>Block Details</b></div>
+        <div className="App"><b>Latest Block Details</b></div>
         <div className="">
           <ul>
             {properties && Object.keys(properties).map(key => (
@@ -120,7 +147,17 @@ function App() {
               </button>
             </li>
   
-            <li>transactions:</li>
+            <li>transactions:
+              <ul>
+                {transactions && transactions.map(transaction => (
+                <li key={transaction}>
+                  <button onClick={() => openTransactionDetailsInNewTab(transaction)} style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
+                    {transaction}
+                  </button>
+                </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </div>
         
