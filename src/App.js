@@ -15,11 +15,6 @@ const settings = {
 };
 
 
-// In this week's lessons we used ethers.js. Here we are using the
-// Alchemy SDK is an umbrella library with several different packages.
-//
-// You can read more about the packages here:
-//   https://docs.alchemy.com/reference/alchemy-sdk-api-surface-overview#api-surface
 const alchemy = new Alchemy(settings);
 
 function App() {
@@ -30,25 +25,6 @@ function App() {
   const [transactions, setTransactions] = useState([]);
 
 
-  /*useEffect(() => {
-    async function getBlockNumber() {
-      const number = await alchemy.core.getBlockNumber();
-      setBlockNumber(number);
-      return number;
-    }
-
-    async function getBlock(number) {
-      const blockData = await alchemy.core.getBlock(number);
-      setBlock(blockData);
-    }
-
-    // Fetch and set the block number
-    getBlockNumber().then(number => {
-      if (number != null) {
-        getBlock(number);
-      }
-    });
-  }, []);*/
   useEffect(() => {
     async function fetchData() {
       const number = await alchemy.core.getBlockNumber();
@@ -211,43 +187,4 @@ export const App2 = () => {
   );
 };
 
-//<div className=""><pre>{JSON.stringify(block, null, 4)}</pre></div>
-//miner: <a href="#" onClick={() => openMinerBalance(properties.miner)}>{properties.miner}</a>
-
-
 export default App;
-
-/*
-<div>
-        <div className="App">Latest Block Number: {blockNumber}</div>
-        <br></br>
-        <div className="App"><b>Latest Block Details</b></div>
-        <div className="">
-          <ul>
-            {properties && Object.keys(properties).map(key => (
-              <li key={key}>{key}: {JSON.stringify(block[key])}</li>
-            ))}
-          </ul>
-          <ul>
-            <li key="miner">
-              <button onClick={() => openMinerBalanceInNewTab(minerAddress)} style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-                {minerAddress}
-              </button>
-            </li>
-  
-            <li>transactions:
-              <ul>
-                {transactions && transactions.map(transaction => (
-                <li key={transaction}>
-                  <button onClick={() => openTransactionDetailsInNewTab(transaction)} style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-                    {transaction}
-                  </button>
-                </li>
-                ))}
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-      </div>
-*/
