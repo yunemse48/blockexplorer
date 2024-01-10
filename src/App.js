@@ -161,30 +161,4 @@ function App() {
     );
 }
 
-export const App2 = () => {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/balance-lookup">Check Balance</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route path="/balance-lookup">
-            <BalanceLookup />
-          </Route>
-          {/* Other routes */}
-        </Switch>
-      </div>
-    </Router>
-  );
-};
-
 export default App;
