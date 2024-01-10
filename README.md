@@ -7,6 +7,18 @@ This project is a simplified version of a block explorer built as a learning exe
 - Transaction Details: Ability to view specific details of transactions within a block.
 - Check Address Balance: Provides a feature to check the balance of any Ethereum address.
 
+![Home Page](https://github.com/yunemse48/simple-block-explorer/assets/60715607/3b90a9ed-fad5-4084-a112-d3cae4673f98)
+
+![Account Balance](https://github.com/yunemse48/simple-block-explorer/assets/60715607/77daa895-f377-4e0d-967d-ab98954324d1)
+
+![Transaction Details](https://github.com/yunemse48/simple-block-explorer/assets/60715607/eeef8765-0e55-4976-987e-befc4bcecfc6)
+
+![Check Balance Page](https://github.com/yunemse48/simple-block-explorer/assets/60715607/49d3df9a-b36f-40f0-a3dd-913a937ce75e)
+
+
+
+
+
 # Technologies Used
 - Alchemy SDK: Used for interacting with the Ethereum blockchain.
 - React: For building the user interface.
