@@ -16,17 +16,13 @@ This project is a simplified version of a block explorer built as a learning exe
 To get a local copy up and running, follow these simple steps.
 
 ## Prerequisites
-**npm**
-`npm install npm@latest -g`
+npm: `npm install npm@latest -g`
 
 ## Installation
-Clone the repo:
-`git clone https://github.com/yunemse48/simple-block-explorer.git`
+Clone the repo: `git clone https://github.com/yunemse48/simple-block-explorer.git`
 
-Install NPM packages:
-`npm install`
+Install NPM packages: `npm install`
 
 ## Usage
 This block explorer is intended as a basic demonstration and learning tool for understanding the functionality of blockchain explorers.
-Start the app with the command below.
-`npm start`
+Start the app: `npm start`
